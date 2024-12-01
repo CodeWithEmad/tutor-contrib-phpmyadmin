@@ -1,0 +1,38 @@
+name: Run tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+         python-version: ['3.9', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install dependencies
+        run: |
+          if [ "${{ matrix.python-version }}" = "3.9" ]; then
+            pip install "tutor==15.0.0"
+          else
+            pip install -U tutor
+          fi
+          # Install dev dependencies for testing
+          pip install pylint mypy black types-setuptools importlib-resources
+          echo "Installing tutor-contrib-phpmyadmin"
+          pip install -e .
+          echo "Enable phpmyadmin plugin and save configuration"
+          tutor plugins enable phpmyadmin
+          tutor config save
+      - name: Test lint, types, and format
+        run: make test
