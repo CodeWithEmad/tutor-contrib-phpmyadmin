@@ -38,10 +38,10 @@ build-pythonpackage:  ## Build Python package ready to upload to pypi
 	python setup.py sdist
 
 push-pythonpackage: ## Push python package to pypi
-	twine upload --skip-existing dist/tutor-contrib-wordpress-$(shell make version).tar.gz
+	twine upload --skip-existing dist/tutor-contrib-phpmyadmin-$(shell make version).tar.gz
 
 version: ## Print the current tutor version
-	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("tutorwordpress", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'
+	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("tutorphpmyadmin", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'
 
 ESCAPE = 
 help: ## Print this help
