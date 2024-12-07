@@ -3,6 +3,9 @@ phpmyadmin plugin for `Tutor <https://docs.tutor.edly.io>`__
 
 This is a `Tutor`_ plugin that provides an easy way to manage your MySQL databases through a web interface using phpMyAdmin.
 
+.. image:: https://raw.githubusercontent.com/CodeWithEmad/tutor-contrib-phpmyadmin/master/docs/screenshot.png
+    :alt: PHPMyAdmin in action
+
 Installation
 ************
 
@@ -27,11 +30,7 @@ Alternatively, if you already have a running Open edX instance, just start the p
 
     tutor dev|local|k8s start phpmyadmin
 
-
-
 Access phpMyAdmin at: http://phpmyadmin.local.edly.io:8081 (local) or https://phpmyadmin.yourdomain.com (production)
-
-
 
 **Important**
 
