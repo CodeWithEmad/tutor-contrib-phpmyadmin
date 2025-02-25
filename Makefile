@@ -34,8 +34,8 @@ ci-info: ## Print info about environment
 bootstrap-dev: ## Install dev requirements
 	pip install .[dev]
 
-build-pythonpackage:  ## Build Python package ready to upload to pypi
-	python setup.py sdist
+build-pythonpackage: ## Build the "tutor" python package for upload to pypi
+	python -m build --sdist
 
 push-pythonpackage: ## Push python package to pypi
 	twine upload --skip-existing dist/tutor-contrib-phpmyadmin-$(shell make version).tar.gz

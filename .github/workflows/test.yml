@@ -28,7 +28,7 @@ jobs:
             pip install -U tutor
           fi
           # Install dev dependencies for testing
-          pip install pylint mypy black types-setuptools importlib-resources
+          pip install pylint mypy black importlib-resources
           echo "Installing tutor-contrib-phpmyadmin"
           pip install -e .
           echo "Enable phpmyadmin plugin and save configuration"
